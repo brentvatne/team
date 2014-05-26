@@ -21,7 +21,7 @@ angular
      location: {name: 'Chicago, IL', id: 'chicago', lat: '41.878114', lon: '-87.629798', tz: 'America/Chicago'}},
     {name: 'Jordan Byron',
      github: 'jordanbyron',
-     email: 'jordanbyron@gmail.com',
+     email: 'jordan.byron@madriska.com',
      location: {name: 'New Haven, CT', id: 'new-haven', lat: '41.308274', lon:'-72.927883', tz: 'America/New_York'}},
     {name: 'Brent Vatne',
      github: 'brentvatne',

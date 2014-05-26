@@ -9,13 +9,12 @@
     </h2>
 
     <h2 class="local-weather">
-      <img ng-src="{{city.weatherIcon()}}">
+      <i class="icon {{city.weatherIcon()}}"></i>
       {{city.temperature()}}&deg; F
     </h2>
 
-    <div ng-repeat="teamMember in city.teamMembers">
-      <!-- XXX gravatar here -->
-      {{teamMember.name}}
+    <div ng-repeat="teamMember in city.teamMembers" class="team-members">
+      <img ng-src="{{teamMember.email | gravatarUrl}}" data-tooltip="{{teamMember.name}}" class="team-member-photo">
     </div>
   </div>
 </div>

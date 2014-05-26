@@ -23,9 +23,17 @@ angular.module('teamApp')
       return this.getForecast().icon;
     };
 
+    City.prototype.forecastApiUrl = function() {
+      // var baseUrl = "https://api.forecast.io/forecast/", url;
+      // url = baseUrl + '4997584fedd1b81ac2d4941658dddc69';
+      // return url + this.lat + ',' + this.lon;
+    }
+
     City.prototype.getForecast = function() {
-      return {temperature: '15', icon: 'cloudy.png'}
-      // make request to forecast.io
+      // $http.get(this.forecastApiUrl()).then(function(data) {
+
+      // });
+      return {temperature: '15', icon: 'cloudy'}
     };
 
     return City;
