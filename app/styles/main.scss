@@ -1,8 +1,20 @@
 @import "../bower_components/normalize-css/normalize.css";
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_mixins";
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables";
+$tooltip-color: #000;
+$tooltip-bg: #fff;
+$font-size-small: 18px;
+$tooltip-arrow-color: #fff;
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_tooltip";
+
+.tooltip {
+  font-weight: 300;
+}
 
 body {
   background: #0F0F0F;
   font-family: 'Lato', sans-serif;
+  text-align: center;
 }
 
 .city-name {
@@ -10,19 +22,42 @@ body {
   color: #fff;
   font-weight: 900;
   font-size: 55px;
+  padding-bottom: 20px;
+  line-height: 70px;
+}
+
+.local-time, .clock, .local-weather, .icon {
+  opacity: 0.8;
 }
 
 .local-time {
   margin: 0;
   color: #fff;
+  font-weight: 300;
+  display: inline-block;
+  font-size: 45px;
+}
+
+.clock {
+  height: 45px;
+  padding-top: 5px;
+  vertical-align: top;
+  font-size: 45px;
 }
 
 .local-weather {
   margin: 0;
   color: #fff;
+  font-weight: 300;
+  display: block;
+  font-size: 45px;
 }
 
 .city {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 80px;
+
   &.chicago {
     background: url(/images/chicago.png);
     background-size: cover;
@@ -42,10 +77,18 @@ body {
 }
 
 .team-members {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+
   .team-member-photo {
     width: 54px;
     border-radius: 27px;
   }
+}
+
+.team-members-large {
+  display: none;
 }
 
 .clear-day, .clear-night, .rain, .snow, .sleet, .wind, .fog, .cloudy, .partly-cloudy-day, .partly-cloudy-night {
@@ -69,11 +112,13 @@ body {
   -webkit-font-smoothing: antialiased;
   *margin-right: .3em;
 }
+
 .icon:before {
   text-decoration: inherit;
   display: inline-block;
   speak: none;
 }
+
 .wi-day-cloudy-gusts:before {
   content: "\f000";
 }
@@ -393,6 +438,34 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
+  .city-name {
+    font-size: 58px;
+    padding-bottom: 5px;
+  }
+
+  .local-time, .local-weather  {
+    display: inline-block;
+  }
+
+  .local-weather {
+    padding-left: 20px;
+  }
+
+  .city {
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
+
+  .team-members {
+    top: 30px;
+    right: 30px;
+  }
+
+  .team-members-large {
+    display: block;
+  }
+
+  .team-members-small {
+    display: none;
   }
 }

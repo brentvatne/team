@@ -12,7 +12,7 @@ angular.module('teamApp')
     }
 
     City.prototype.localTime = function() {
-      return moment().tz(this.tz).format('h:mm a');
+      return moment().tz(this.tz).format('h:mm a').toUpperCase();
     }
 
     City.prototype.temperature = function() {

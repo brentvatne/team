@@ -5,6 +5,7 @@
     </h1>
 
     <h2 class="local-time">
+      <img src="images/clock.png" class="clock"></img>
       {{city.localTime()}}
     </h2>
 
@@ -13,8 +14,15 @@
       {{city.temperature()}}&deg; F
     </h2>
 
-    <div ng-repeat="teamMember in city.teamMembers" class="team-members">
-      <img ng-src="{{teamMember.email | gravatarUrl}}" data-tooltip="{{teamMember.name}}" class="team-member-photo">
+    <div ng-repeat="teamMember in city.teamMembers" ng-init="firstCity = $parent.$first" class="team-members team-members-large">
+      <img ng-src="{{teamMember.email | gravatarUrl}}" data-toggle="tooltip"
+           data-placement="{{firstCity && 'bottom' || 'top'}}" title="{{teamMember.name}}"
+           class="team-member-photo" />
+    </div>
+
+    <div ng-repeat="teamMember in city.teamMembers" class="team-members team-members-small">
+      <img ng-src="{{teamMember.email | gravatarUrl}}" data-toggle="tooltip"
+           data-placement="top" title="{{teamMember.name}}" class="team-member-photo" />
     </div>
   </div>
 </div>
