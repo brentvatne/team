@@ -21,8 +21,8 @@ body {
   margin: 0;
   color: #fff;
   font-weight: 900;
-  font-size: 55px;
-  padding-bottom: 20px;
+  font-size: 50px;
+  padding-bottom: 15px;
   line-height: 70px;
 }
 
@@ -30,19 +30,24 @@ body {
   opacity: 0.8;
 }
 
+.city-name {
+  opacity: 0.95;
+}
+
 .local-time {
   margin: 0;
   color: #fff;
   font-weight: 300;
   display: inline-block;
-  font-size: 45px;
+  font-size: 40px;
 }
 
 .clock {
-  height: 45px;
+  height: 40px;
   padding-top: 5px;
   vertical-align: top;
-  font-size: 45px;
+  font-size: 40px;
+  padding-right: 2px;
 }
 
 .local-weather {
@@ -50,7 +55,7 @@ body {
   color: #fff;
   font-weight: 300;
   display: block;
-  font-size: 45px;
+  font-size: 40px;
 }
 
 .city {
@@ -58,17 +63,30 @@ body {
   padding-top: 40px;
   padding-bottom: 80px;
 
-  &.chicago {
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 0;
+    filter: blur(2px);
+    top: -4px;
+    left: -4px;
+    opacity: 0.9;
+  }
+
+  &.chicago:before {
     background: url(/images/chicago.png);
     background-size: cover;
   }
 
-  &.new-haven {
+  &.new-haven:before {
     background: url(/images/new-haven.png);
     background-size: cover;
   }
 
-  &.vancouver {
+  &.vancouver:before {
     background: url(/images/vancouver.png);
     background-size: cover;
   }
@@ -439,7 +457,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .city-name {
-    font-size: 58px;
+    font-size: 64px;
     padding-bottom: 5px;
   }
 
@@ -467,5 +485,25 @@ body {
 
   .team-members-small {
     display: none;
+  }
+
+
+  .local-time {
+    font-size: 45px;
+  }
+
+  .clock {
+    height: 45px;
+    padding-top: 5px;
+    vertical-align: top;
+    font-size: 45px;
+  }
+
+  .local-weather {
+    margin: 0;
+    color: #fff;
+    font-weight: 300;
+    display: block;
+    font-size: 45px;
   }
 }
