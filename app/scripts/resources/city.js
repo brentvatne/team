@@ -16,24 +16,25 @@ angular.module('teamApp')
     }
 
     City.prototype.temperature = function() {
-      return this.getForecast().temperature;
+      return this.temperature;
     }
 
     City.prototype.weatherIcon = function() {
-      return this.getForecast().icon;
+      return this.icon;
     };
 
     City.prototype.forecastApiUrl = function() {
-      // var baseUrl = "https://api.forecast.io/forecast/", url;
-      // url = baseUrl + '4997584fedd1b81ac2d4941658dddc69';
-      // return url + this.lat + ',' + this.lon;
+      var baseUrl = "http://team-forecast.herokuapp.com/";
+      return baseUrl + this.lat + ',' + this.lon + "?callback=JSON_CALLBACK";
     }
 
     City.prototype.getForecast = function() {
-      // $http.get(this.forecastApiUrl()).then(function(data) {
+      return $http.jsonp(this.forecastApiUrl());
+    };
 
-      // });
-      return {temperature: '15', icon: 'cloudy'}
+    City.prototype.setForecast = function(options) {
+      this.temperature = Math.round(options['temperature']);
+      this.icon = options['conditions'];
     };
 
     return City;
