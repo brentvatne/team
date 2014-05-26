@@ -1,4 +1,5 @@
 <div ng-repeat="city in cities">
+  <!-- The city id is used to add the background and any other city specific attributes -->
   <div class="city {{city.id}}">
     <h1 class="city-name">
       {{city.name}}
@@ -14,15 +15,30 @@
       {{city.temperature}}&deg; F
     </h2>
 
-    <div ng-repeat="teamMember in city.teamMembers" ng-init="firstCity = $parent.$first" class="team-members team-members-large">
-      <img ng-src="{{teamMember.email | gravatarUrl}}" data-toggle="tooltip"
+    <!-- Render team members differently if on large screen (eg desktop) or small screen (eg mobile) -->
+    <!-- We do this so that the tooltip will appear on the bottom for the first team member on large -->
+    <!-- But on mobile, we have team members at the bottom of the city, so we can render tooltips always -->
+    <!-- on the top of the team member's photo -->
+
+    <!-- We need to get the parent repeater's $first value, because here $first refer to the teamMember repeater -->
+    <div ng-repeat="teamMember in city.teamMembers" ng-init="firstCity = $parent.$first"
+         class="team-members team-members-large">
+
+      <!-- We use ng-src here because if not, the browser will try to render it before we have evaluated it -->
+      <img ng-src="{{teamMember.email | gravatarUrl}}"
+           data-toggle="tooltip"
            data-placement="{{firstCity && 'bottom' || 'top'}}" title="{{teamMember.name}}"
            class="team-member-photo" />
     </div>
 
     <div ng-repeat="teamMember in city.teamMembers" class="team-members team-members-small">
-      <img ng-src="{{teamMember.email | gravatarUrl}}" data-toggle="tooltip"
-           data-placement="top" title="{{teamMember.name}}" class="team-member-photo" />
+
+      <!-- We use ng-src here because if not, the browser will try to render it before we have evaluated it -->
+      <img ng-src="{{teamMember.email | gravatarUrl}}"
+           data-toggle="tooltip"
+           data-placement="top"
+           title="{{teamMember.name}}"
+           class="team-member-photo" />
     </div>
   </div>
 </div>
